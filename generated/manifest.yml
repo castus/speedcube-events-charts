@@ -18,7 +18,7 @@ spec:
         spec:
           containers:
             - name: speedcube-events
-              image: "c4stus/speedcube-events:sha-e8a2d4f"
+              image: "c4stus/speedcube-events:sha-6217063"
               imagePullPolicy: IfNotPresent
               command:
                 - /bin/sh
