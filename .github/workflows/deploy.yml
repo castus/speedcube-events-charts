@@ -1,0 +1,30 @@
+name: Deploy the next version of charts with a image tag
+
+on:
+  repository_dispatch:
+    types: [deploy]
+permissions:
+  contents: write
+jobs:
+  deploy:
+    name: Generate and deploy manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event Information
+        run: |
+          echo "Event '${{ github.event.action }}' received with image tag: '${{ github.event.client_payload.image_tag }}'"
+      - uses: azure/setup-helm@v3
+        with:
+          version: 'v3.13.1'
+        id: install
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate template
+        run: |
+          helm template . --set image.tag=${{ github.event.client_payload.image_tag }} > ./generated/manifest.yml
+      - name: Commit manifest
+        run: |
+          git config --global user.name 'Deploy bot'
+          git config --global user.email 'castus.bot@gmail.com'
+          git commit -am "feat: Deploy ${{ github.event.client_payload.image_tag }}"
+          git push

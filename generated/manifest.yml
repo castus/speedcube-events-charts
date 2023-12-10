@@ -1,0 +1,27 @@
+---
+# Source: speedcube-events/templates/cron_job.yaml
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: lights-api
+  labels:
+    helm.sh/chart: speedcube-events-0.1.0
+    app.kubernetes.io/name: speedcube-events
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  schedule: "@hourly"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: speedcube-events
+              image: "c4stus/speedcube-events:123"
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/sh
+                - -c
+                - ./speedcube-events
+          restartPolicy: OnFailure
