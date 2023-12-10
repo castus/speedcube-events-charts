@@ -10,7 +10,7 @@ image:
 
 imagePullSecrets: []
 nameOverride: ""
-fullnameOverride: "lights-api"
+fullnameOverride: "speedcube-events"
 
 serviceAccount:
   # Specifies whether a service account should be created

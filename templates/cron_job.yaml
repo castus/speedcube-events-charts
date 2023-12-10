@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: {{ include "speedcube-events.fullname" . }}
+  name: {{ include "speedcube-events.fullname" . }}-cron
   labels:
     {{- include "speedcube-events.labels" . | nindent 4 }}
 spec:
