@@ -18,4 +18,12 @@ spec:
                 - /bin/sh
                 - -c
                 - ./speedcube-events
+              env:
+                {{- range .Values.envs }}
+                - name: {{ . }}
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: {{ . }}
+                {{- end }}
           restartPolicy: OnFailure

@@ -95,3 +95,14 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+envs:
+  - HOME_LAT
+  - HOME_LON
+  - MAPS_TOKEN
+  - MAIL_TOKEN
+  - AWS_API_KEY
+  - AWS_API_SECRET
+  - MAIL_FROM_NAME
+  - MAIL_FROM_EMAIL
+  - NOTIFY_EMAILS

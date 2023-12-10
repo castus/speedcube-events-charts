@@ -24,4 +24,50 @@ spec:
                 - /bin/sh
                 - -c
                 - ./speedcube-events
+              env:
+                - name: HOME_LAT
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: HOME_LAT
+                - name: HOME_LON
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: HOME_LON
+                - name: MAPS_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: MAPS_TOKEN
+                - name: MAIL_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: MAIL_TOKEN
+                - name: AWS_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: AWS_API_KEY
+                - name: AWS_API_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: AWS_API_SECRET
+                - name: MAIL_FROM_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: MAIL_FROM_NAME
+                - name: MAIL_FROM_EMAIL
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: MAIL_FROM_EMAIL
+                - name: NOTIFY_EMAILS
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: NOTIFY_EMAILS
           restartPolicy: OnFailure
