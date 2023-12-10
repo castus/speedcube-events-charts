@@ -3,7 +3,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: lights-api
+  name: speedcube-events-cron
   labels:
     helm.sh/chart: speedcube-events-0.1.0
     app.kubernetes.io/name: speedcube-events
