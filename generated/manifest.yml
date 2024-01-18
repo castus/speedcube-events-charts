@@ -70,4 +70,9 @@ spec:
                     secretKeyRef:
                       name: "speedcube-events-secrets"
                       key: NOTIFY_EMAILS
+                - name: TABLE_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: TABLE_NAME
           restartPolicy: OnFailure
