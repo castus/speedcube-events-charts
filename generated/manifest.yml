@@ -11,7 +11,7 @@ metadata:
     app.kubernetes.io/version: "1.16.0"
     app.kubernetes.io/managed-by: Helm
 spec:
-  schedule: "@hourly"
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
@@ -23,7 +23,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - ./speedcube-events
+                - ./speedcube-events && ./speedcube-events exportDatabase
               env:
                 - name: HOME_LAT
                   valueFrom:
