@@ -5,7 +5,7 @@ metadata:
   labels:
     {{- include "speedcube-events.labels" . | nindent 4 }}
 spec:
-  schedule: "@hourly"
+  schedule: "*/30 * * * *"
   jobTemplate:
     spec:
       template:
@@ -17,7 +17,7 @@ spec:
               command:
                 - /bin/sh
                 - -c
-                - ./speedcube-events
+                - ./speedcube-events && ./speedcube-events exportDatabase
               env:
                 {{- range .Values.envs }}
                 - name: {{ . }}
