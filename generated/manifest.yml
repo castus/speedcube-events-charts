@@ -75,4 +75,19 @@ spec:
                     secretKeyRef:
                       name: "speedcube-events-secrets"
                       key: TABLE_NAME
+                - name: AWS_S3_API_KEY
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: AWS_S3_API_KEY
+                - name: AWS_S3_API_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: AWS_S3_API_SECRET
+                - name: S3_BUCKET_NAME
+                  valueFrom:
+                    secretKeyRef:
+                      name: "speedcube-events-secrets"
+                      key: S3_BUCKET_NAME
           restartPolicy: OnFailure
